@@ -32,7 +32,15 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     //tendrian que sincronizar las variables entre los jugadores y enemigos
     public void CambiarValor()
     {
-        if(photonView.IsMine)
+         photonView.RPC("CambiarValorEnRed",RpcTarget.All,photonView.IsMine);
+    }
+
+
+
+    [PunRPC]
+    void CambiarValorEnRed(bool soyJugador)
+    {
+        if(soyJugador)
         {
             Jugador = PlayerInput.text;
             jugadorRED = Jugador;//este valor se tendria que compartir en la red
@@ -40,7 +48,7 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
             JugadorText.text = Jugador;
             enemigoREDText.text = enemigoRED;
         }
-        if(!photonView.IsMine)
+        if(!soyJugador)
         {
             enemigo =  EnemigoInput.text;
             enemigoRED = enemigo;//este valor se tendria que compartir en la red
@@ -54,15 +62,22 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("empezar");//empiezo despues de 3 segundos por las dudas
+        StartCoroutine("empezarTodo");//empiezo despues de 3 segundos por las dudas
+    }
+
+    
+    IEnumerator empezarTodo()
+    {
+        yield return new WaitForSeconds(3);
+        photonView.RPC("empezarConRed",RpcTarget.All,photonView.IsMine);
+       
     }
 
 
-    IEnumerator empezar()
+    [PunRPC]
+    void empezarConRed(bool SoyJugador)
     {
-        yield return new WaitForSeconds(3);
-       
-        if(photonView.IsMine)//si es el jugador
+         if(SoyJugador)//si es el jugador
         {
             informacion.text = "SOY JUGADOR";
             //Para datos
@@ -73,7 +88,7 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
             enemigoREDText.text = enemigoRED;
         }
 
-        if(!photonView.IsMine)//si es el enemigo
+        if(!SoyJugador)//si es el enemigo
         {
             informacion.text = "SOY ENEMIGO";
             //Para datos
@@ -85,12 +100,6 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
 
         }
     }
-
-
-
-
-
-
 
 
 

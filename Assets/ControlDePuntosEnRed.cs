@@ -21,16 +21,22 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     //valores para modificar en la red
     public string VariableLocal = "1";
 
+   
+    // Start is called before the first frame update
+    void Start()
+    {
+        StartCoroutine("empezarTodo");//empiezo despues de 3 segundos por las dudas
+        // photonView.RPC("empezarConRed",RpcTarget.All,photonView.IsMine);
+        // StartCoroutine("actualizarTextosCadaCiertoTiempoEnRed");//actualiza los textos en pantalla
+    }
 
 
     //cuando cambio los valores desde el inputField se 
     //tendrian que sincronizar las variables entre los jugadores y enemigos
     public void CambiarValor()
     {
-         photonView.RPC("CambiarValorEnRed",RpcTarget.All,photonView.IsMine);
+        photonView.RPC("CambiarValorEnRed",RpcTarget.All,photonView.IsMine);
     }
-
-
 
     [PunRPC]
     void CambiarValorEnRed(bool soyJugador)
@@ -48,46 +54,62 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
         }
     }
 
-   
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine("empezarTodo");//empiezo despues de 3 segundos por las dudas
-    }
 
-    
+    ////////////////////////////////////////////////////////
+    // IEnumerator actualizarTextosCadaCiertoTiempoEnRed()
+    // {
+        
+    //     yield return new WaitForSeconds(4f);
+    //     while(true)
+    //     {
+    //         photonView.RPC("actualizarTextos",RpcTarget.All,photonView.IsMine);
+    //         yield return new WaitForSeconds(0.1f);
+    //     }
+        
+    // }
+
+    // [PunRPC]
+    // public void actualizarTextos(bool soyJugador)
+    // {
+    //     if(soyJugador)
+    //     {
+    //         VariableLocalText.text = VariableLocal;
+    //     }
+    //     if(!soyJugador)
+    //     {
+    //         VariableRedText.text = VariableLocal;
+    //     }
+    // }
+    ///////////////////////////////////////////////////////
+
+    //---------------------------------------------------//
+
+    //////////////////////////////////////////////////////
     IEnumerator empezarTodo()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         photonView.RPC("empezarConRed",RpcTarget.All,photonView.IsMine);
     }
-
 
     [PunRPC]
     void empezarConRed(bool SoyJugador)
     {
-         if(SoyJugador)//si es el jugador
+        if(SoyJugador)//si es el jugador
         {
             informacion.text = "SOY JUGADOR";
-
-            VariableLocalText.text = VariableLocal;
         }
 
         if(!SoyJugador)//si es el enemigo
         {
             informacion.text = "SOY ENEMIGO";
-            
-            VariableRedText.text = VariableLocal;
-
         }
     }
-
+    /////////////////////////////////////////////////////
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
          if(stream.IsWriting)//si estoy escribiendo datos...Siempre soy yo el que escribre datos
         {
-
             stream.SendNext(VariableLocal);
         }
         else //si esta escribiendo datos un avatar

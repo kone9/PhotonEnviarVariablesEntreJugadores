@@ -27,7 +27,7 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     {
         StartCoroutine("empezarTodo");//empiezo despues de 3 segundos por las dudas
         // photonView.RPC("empezarConRed",RpcTarget.All,photonView.IsMine);
-        // StartCoroutine("actualizarTextosCadaCiertoTiempoEnRed");//actualiza los textos en pantalla
+        StartCoroutine("actualizarTextosCadaCiertoTiempoEnRed");//actualiza los textos en pantalla
     }
 
 
@@ -55,36 +55,36 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     }
 
 
-
+    //PARA ACTUALIZAR LOS TEXTOS CADA 1 SEGUNDO
     ////////////////////////////////////////////////////////
-    // IEnumerator actualizarTextosCadaCiertoTiempoEnRed()
-    // {
+    IEnumerator actualizarTextosCadaCiertoTiempoEnRed()
+    {
         
-    //     yield return new WaitForSeconds(4f);
-    //     while(true)
-    //     {
-    //         photonView.RPC("actualizarTextos",RpcTarget.All,photonView.IsMine);
-    //         yield return new WaitForSeconds(0.1f);
-    //     }
+        yield return new WaitForSeconds(4f);
+        while(true)
+        {
+            photonView.RPC("actualizarTextos",RpcTarget.All,photonView.IsMine);
+            yield return new WaitForSeconds(0.1f);
+        }
         
-    // }
+    }
 
-    // [PunRPC]
-    // public void actualizarTextos(bool soyJugador)
-    // {
-    //     if(soyJugador)
-    //     {
-    //         VariableLocalText.text = VariableLocal;
-    //     }
-    //     if(!soyJugador)
-    //     {
-    //         VariableRedText.text = VariableLocal;
-    //     }
-    // }
+    [PunRPC]
+    public void actualizarTextos(bool soyJugador)
+    {
+        if(soyJugador)
+        {
+            VariableLocalText.text = VariableLocal;
+        }
+        if(!soyJugador)
+        {
+            VariableRedText.text = VariableLocal;
+        }
+    }
     ///////////////////////////////////////////////////////
 
-    //---------------------------------------------------//
-
+    
+    //PARA INCIAR Y VER MERNSAJE SI SOY JUGADOR O ENEMIGO
     //////////////////////////////////////////////////////
     IEnumerator empezarTodo()
     {
@@ -107,6 +107,9 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     }
     /////////////////////////////////////////////////////
 
+
+    //mandar la variable entre todos los jugadores,utilizo 1 sola variable
+    //la idea es poder saber cuando es mía o cuando es del enemigo
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
          if(stream.IsWriting)//si estoy escribiendo datos...Siempre soy yo el que escribre datos

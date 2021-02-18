@@ -55,6 +55,7 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     }
 
 
+
     ////////////////////////////////////////////////////////
     // IEnumerator actualizarTextosCadaCiertoTiempoEnRed()
     // {

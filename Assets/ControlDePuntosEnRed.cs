@@ -9,23 +9,18 @@ using Photon.Realtime;
 public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
 {
 
-    public InputField PlayerInput;
-    public InputField EnemigoInput;
+    public InputField VariableLocalInput;
     public Text informacion;
 
     //referecia a los textos de la escena
-    public Text JugadorText;
-    public Text enemigoREDText;
-    public Text enemigoText;
-    public Text jugadorREDText;
+    public Text VariableLocalText;
+    public Text VariableRedText;
+
 
 
     //valores para modificar en la red
-    public string Jugador = "1";
-    public string jugadorRED = "1";
+    public string VariableLocal = "1";
 
-    public string enemigo = "2";
-    public string enemigoRED = "2";
 
 
     //cuando cambio los valores desde el inputField se 
@@ -42,19 +37,14 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     {
         if(soyJugador)
         {
-            Jugador = PlayerInput.text;
-            jugadorRED = Jugador;//este valor se tendria que compartir en la red
+            VariableLocal = VariableLocalInput.text;
             //para ver en pantalla
-            JugadorText.text = Jugador;
-            enemigoREDText.text = enemigoRED;
+            VariableLocalText.text = VariableLocal;
+            
         }
         if(!soyJugador)
         {
-            enemigo =  EnemigoInput.text;
-            enemigoRED = enemigo;//este valor se tendria que compartir en la red
-            //para ver en pantalla
-            enemigoText.text = enemigo;
-            jugadorREDText.text = jugadorRED;
+            VariableRedText.text = VariableLocal;
         }
     }
 
@@ -70,7 +60,6 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     {
         yield return new WaitForSeconds(3);
         photonView.RPC("empezarConRed",RpcTarget.All,photonView.IsMine);
-       
     }
 
 
@@ -80,27 +69,18 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
          if(SoyJugador)//si es el jugador
         {
             informacion.text = "SOY JUGADOR";
-            //Para datos
-            jugadorRED = Jugador;
 
-            //Para UI
-            JugadorText.text = Jugador;
-            enemigoREDText.text = enemigoRED;
+            VariableLocalText.text = VariableLocal;
         }
 
         if(!SoyJugador)//si es el enemigo
         {
             informacion.text = "SOY ENEMIGO";
-            //Para datos
-            enemigoRED = enemigo;
-
-            //Para UI
-            enemigoText.text = enemigo;
-            jugadorREDText.text = jugadorRED;
+            
+            VariableRedText.text = VariableLocal;
 
         }
     }
-
 
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -108,17 +88,11 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
          if(stream.IsWriting)//si estoy escribiendo datos...Siempre soy yo el que escribre datos
         {
 
-            stream.SendNext(Jugador);
-            stream.SendNext(enemigo);
-            stream.SendNext(jugadorRED);
-            stream.SendNext(enemigoRED);
+            stream.SendNext(VariableLocal);
         }
         else //si esta escribiendo datos un avatar
         {
-            Jugador = (string)stream.ReceiveNext();
-            enemigo = (string)stream.ReceiveNext();
-            jugadorRED = (string)stream.ReceiveNext();
-            enemigoRED = (string)stream.ReceiveNext();
+            VariableLocal = (string)stream.ReceiveNext();
         }
     }
 

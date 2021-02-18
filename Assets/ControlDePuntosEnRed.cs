@@ -27,7 +27,7 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
     {
         StartCoroutine("empezarTodo");//empiezo despues de 3 segundos por las dudas
         // photonView.RPC("empezarConRed",RpcTarget.All,photonView.IsMine);
-        StartCoroutine("actualizarTextosCadaCiertoTiempoEnRed");//actualiza los textos en pantalla
+        // StartCoroutine("actualizarTextosCadaCiertoTiempoEnRed");//actualiza los textos en pantalla
     }
 
 
@@ -46,16 +46,18 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks,IPunObservable
             VariableLocal = VariableLocalInput.text;
             //para ver en pantalla
             VariableLocalText.text = VariableLocal;
+            VariableRedText.text = VariableLocal;
             
         }
-        if(!soyJugador)
-        {
-            VariableRedText.text = VariableLocal;
-        }
+        // if(!soyJugador)
+        // {
+        //     VariableRedText.text = VariableLocal;
+        //     // VariableRedText.text = VariableLocal;
+        // }
     }
 
 
-    //PARA ACTUALIZAR LOS TEXTOS CADA 1 SEGUNDO
+    //PARA ACTUALIZAR LOS TEXTOS CADA 0.1 SEGUNDO
     ////////////////////////////////////////////////////////
     IEnumerator actualizarTextosCadaCiertoTiempoEnRed()
     {

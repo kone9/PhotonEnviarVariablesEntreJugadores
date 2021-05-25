@@ -49,4 +49,4 @@ saturan la red fácilmente y que posiblemente no sea posible ejecutarlo.
 
  Por eso siempre es mejor ejecutar todo localmente y enviar variables para ejecutar la acción necesaria en el mismo avatar sin tener que enviar datos complejos en la red.
 
-# "Un día te hizo click la cabeza y lo entendiste"
+# "Un día luego de intentarlo muchas veces te hizo click la cabeza y lo entendiste"

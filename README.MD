@@ -21,11 +21,11 @@ https://academy.zenva.com/product/multiplayer-game-development-mini-degree/
  ![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/codigo%20principal.jpg)
 
 ## Lo más importante es:
-photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);
+## photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);
 
-Usar un párametro en la función y RPC.OthersBufferes para sincronizarlos en otro.
+## Usar un párametro en la función y RPC.OthersBufferes para sincronizarlos en otro.
 
-El "nameof(CambiarValorEnRed)" es para llamar al nombre de la función en proyectos grandes ayuda a buscar funciones
+## El "nameof(CambiarValorEnRed)" es para llamar al nombre de la función en proyectos grandes ayuda a buscar funciones
 
 No soy muy tecnico, pero tengo expriencía y te explico desde mi conocimiento..Creo que Photon es la única herramienta actual seria para hacer juegos multiplayer con Unity, hay otras, pero nose si valgan la pena o sean estables.. Lo unico que para mi es mejor que photon es la herramienta multiplayer que Posee Unreal Engine, pasar variables entre jugadores es 2 nodos con unreal....
 

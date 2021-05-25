@@ -28,7 +28,7 @@ A mi me costo 3 meses entender como enviar variables con photon.
 Si tenes una interface y obviamente necesitas sincronizar una caracteristica. "La interface es solo la tuya" y solamente envias la variable, entonces en cada jugador sincronizas la interface..Entendes?.. El secreto es enviar la variable.. 
 
 ## "Este es el problema que nadie explica con photon en youtube".
- Todos repiten el mismo tutorial de crear el lobby, conectarse y mover. Osea el problema es que tenes que ejecutar todo localmente.Entendes?..La interface, los efectos, todo localmente.. Solo sincronizas posiciones y "variables" entre jugador y enemigo.
+ Todos repiten el mismo tutorial de crear el lobby, conectarse y mover. Osea la gente suele enfrentarse al problema de tener que enviar datos en la red, porque obviamente cuando juegan dos jugadores es fundamental conocer la vida o el puntaje del otro. El problema es que tenes que ejecutar todo localmente.Entendes?..La interface, los efectos, todo localmente.Solo sincronizas posiciones y "variables" entre jugador y enemigo.
  
  El tema de las variables es lo más importante y la cabeza tiene que hacerte click para que entiendas quien es el jugador y quien es el enemigo cuando usas photon. Una ves que comprendes que todo lo ejecutas de forma local y que solo recibis variables ya esta. Entonces creas un script que se llame variables globales en red, y la ejecutas desde un lado y desde el otro. Sino pensaste desde un comienzo el proyecto como multiplayer te va a explotar la cabeza, pero tendrias que poder solucionarlo con el tema de enviar variables de la forma que te muestro en este proyecto.
 

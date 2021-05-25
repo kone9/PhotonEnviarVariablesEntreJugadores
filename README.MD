@@ -1,4 +1,5 @@
 # PHOTON SINCRONIZAR VARIABLES ENTRE JUGADORES
+
 El script principal esta en el gameobject llamado ControlDePuntosEnRed donde se hace referencia a la interface y esta el photon view
 ![VariablesYTextos](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/interfaceUnity.jpg)
 

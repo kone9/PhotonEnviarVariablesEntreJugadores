@@ -25,6 +25,7 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks//,IPunObservable
        VariableLocalText.text = value;//cambia al jugador local
        //El tema de "nameof(CambiarValorEnRed)" es para obtener el nombre de la función, se podria escribir solo string, pero cuando el código crece cuesta buscar que hace cada cosa, entonces de esa forma podes ver donde se usa cada función.
        photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);//cambia al otro jugador MUY IMPORTANTE USAR EL PÁRAMETRO EN LA FUNCIÓN
+    
     }
 
     [PunRPC]

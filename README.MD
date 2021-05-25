@@ -12,7 +12,7 @@ El script principal esta en el gameobject llamado ControlDePuntosEnRed donde se 
 ## Te recomiendo este curso
 https://academy.zenva.com/product/multiplayer-game-development-mini-degree/
  
- ![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/curso%20recomendable%20de%20photon.jpg)
+ ![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/curso%20de%20photon.gif)
 
  Te recomiendo estos cursos.. Ni en platzy, ni en EDteam, ni en casi ningúna plataforma vi esta clase de cursos con photon. Están en ingles, pero podes usar subtítulos en ingles y si casas más o menos entendes. Yo vi la introducción donde enseñan a crear el servidor, conecciones, pantalla para conectar y movimiento básicos en red, etc.. Lo mejor de estos cursos es que tienen varias mécanicas resuletas con Photon a parte de enseñar a usar Microsoft Azure PlayFab para crear logging, score entre otras cosas que ncesita un juego profesional multiplayer en linea... En mi caso lo abandoné porque quiero dedicarme a Unreal Engine, pero si queres aprender photon estoy seguro de que estos cursos te van a servir para convertirte en una profesional con la herramienta.....
 
@@ -21,8 +21,10 @@ https://academy.zenva.com/product/multiplayer-game-development-mini-degree/
  ![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/codigo%20principal.jpg)
 
 ## Lo más importante es:
-## photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);
+photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);
+
 Usar un párametro en la función y RPC.OthersBufferes para sincronizarlos en otro.
+
 El "nameof(CambiarValorEnRed)" es para llamar al nombre de la función en proyectos grandes ayuda a buscar funciones
 
 No soy muy tecnico, pero tengo expriencía y te explico desde mi conocimiento..Creo que Photon es la única herramienta actual seria para hacer juegos multiplayer con Unity, hay otras, pero nose si valgan la pena o sean estables.. Lo unico que para mi es mejor que photon es la herramienta multiplayer que Posee Unreal Engine, pasar variables entre jugadores es 2 nodos con unreal....

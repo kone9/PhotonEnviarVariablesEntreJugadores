@@ -39,6 +39,8 @@ Si tenes una interface y obviamente necesitas sincronizar una caracteristica. "L
 
 ## Usar RPC.OthersBufferes para sincronizarlos en el "OTRO" y un párametro en la función.(el parametro es el veradero quebradero de cabeza para muchos porque sino lo pones no funciona en el otro).
 ![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/Parametros%20necesarios%20para%20ejecutar%20en%20otro.jpg)
+
+## esta es la funcion PUNRPC con el párametro que se usa en la variable del otro que es la misma que este.XD
 ![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/funcionLlamada.jpg)
 
 

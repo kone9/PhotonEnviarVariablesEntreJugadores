@@ -57,4 +57,6 @@ saturan la red fácilmente y que posiblemente no sea posible ejecutarlo.
 
  Por eso siempre es mejor ejecutar todo localmente y enviar variables para ejecutar la acción necesaria en el mismo avatar sin tener que enviar datos complejos en la red.
 
+ Una de las cosas que más confunde es el tema de los script, "vos tenes 1 solo script" que es una instancia en cada jugador, entendes?.. Pero ese script tiene la particularidad con Photon de poder enviar datos en la red y de ejecutarlos localmente. Esa es la mágia de Photon..
+
 # "Un día luego de intentarlo muchas veces te hizo click la cabeza y lo entendiste"

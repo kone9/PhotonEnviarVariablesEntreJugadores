@@ -21,16 +21,16 @@ public class ControlDePuntosEnRed : MonoBehaviourPunCallbacks//,IPunObservable
     //tendrian que sincronizar las variables entre los jugadores y enemigos
     public void CambiarValor()
     {
-       string value = VariableLocalInput.text;
-       VariableLocalText.text = value;
-       photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);
+       string value = VariableLocalInput.text;//cambia al jugador local, luego es usado en el parametro del otro
+       VariableLocalText.text = value;//cambia al jugador local
+       //El tema de "nameof(CambiarValorEnRed)" es para obtener el nombre de la función, se podria escribir solo string, pero cuando el código crece cuesta buscar que hace cada cosa, entonces de esa forma podes ver donde se usa cada función.
+       photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);//cambia al otro jugador MUY IMPORTANTE USAR EL PÁRAMETRO EN LA FUNCIÓN
     }
 
     [PunRPC]
-    void CambiarValorEnRed(string variable)
+    void CambiarValorEnRed(string variable)//para ejecutar en el otro jugador, usa variables locales, pero se ejecuta en el otro que tambien usa las mismas variables
     {
-        VariableRedText.text = variable;
-        tomarDatosRival = variable;
+        VariableRedText.text = variable;//CAMBIA EL texto del otro jugador
     }
 
     

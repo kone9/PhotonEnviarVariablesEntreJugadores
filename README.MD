@@ -29,16 +29,21 @@ A mi me costo 3 meses entender como enviar variables con photon.. Si tenes una i
 
 ## Lo más importante es:
 ## photonView.RPC(nameof(CambiarValorEnRed), RpcTarget.OthersBuffered, value);
-![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/codigo%20principal.jpg)
+![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/photonView.RPC.jpg)
 
 ## Usar un párametro en la función y RPC.OthersBufferes para sincronizarlos en otro.
-![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/codigo%20principal.jpg)
+![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/Parametros%20necesarios%20para%20ejecutar%20en%20otro.jpg)
+![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/funcionLlamada.jpg)
+
 
 ## El "nameof(CambiarValorEnRed)" es para llamar al nombre de la función en proyectos grandes ayuda a buscar funciones
-![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/codigo%20principal.jpg)
+![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/nameOf.jpg)
 
 
 ## Entonces
 
 "Si Quiero sincronizar el canvas y resulta que tengo que hacer o un Singleton o que cada cliente tenga una referencia al canvas, me deja mucho codigo feo"....
 Justamente a eso me refiero, que cada cliente maneje su canvas y solo envia variables, no hagas referencia al canvas, solo usa variables.. "El singleton hacelo solo con las variables si es necesario"
+Escuche casos de personas querian hacer referencia a particulas, eventos de física, entre otras cosas que
+saturan la red fácilmente y que posiblemente no sea posible ejecutarlo, por eso siempre es mejor ejecutar todo localmente y enviar variables para
+que localmente se ejecute la acción correspondiente sin tener que enviar datos complejos en la web.

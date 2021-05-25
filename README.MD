@@ -6,9 +6,14 @@ El script principal esta en el gameobject llamado ControlDePuntosEnRed donde se 
 ![VariablesYTextosGIF](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/photonSincronizarVariables.gif)
 
 
+
+
+
 ## Te recomiendo este curso
 https://academy.zenva.com/product/multiplayer-game-development-mini-degree/
  
+ ![Curso de photon recomendado](https://github.com/kone9/PhotonEnviarVariablesEntreJugadores/blob/main/curso%20recomendable%20de%20photon.jpg)
+
  Te recomiendo estos cursos.. Ni en platzy, ni en EDteam, ni en casi ningúna plataforma vi esta clase de cursos con photon. Están en ingles, pero podes usar subtítulos en ingles y si casas más o menos entendes. Yo vi la introducción donde enseñan a crear el servidor, conecciones, pantalla para conectar y movimiento básicos en red, etc.. Lo mejor de estos cursos es que tienen varias mécanicas resuletas con Photon a parte de enseñar a usar Microsoft Azure PlayFab para crear logging, score entre otras cosas que ncesita un juego profesional multiplayer en linea... En mi caso lo abandoné porque quiero dedicarme a Unreal Engine, pero si queres aprender photon estoy seguro de que estos cursos te van a servir para convertirte en una profesional con la herramienta.....
 
 
